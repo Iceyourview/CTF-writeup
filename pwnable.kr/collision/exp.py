@@ -1,6 +1,8 @@
 from pwn import *
 
 sh = ssh('col','pwnable.kr', 2222, 'guest')
+
+# hashcode
 hashcode = 0x21DD09EC
 
 '''

@@ -4,7 +4,7 @@
 1. rot13.com
 2. python, c++, ...code
 * python
-'''python
+```python
 	def rot13(sentence):
     		return ''.join([chr((ord(letter) - 97 + 13) % 26 + 97)
                         		if 97 <= ord(letter) <= 122
@@ -18,4 +18,4 @@
 
 
 
-'''
+```

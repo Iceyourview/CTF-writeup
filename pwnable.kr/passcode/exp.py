@@ -5,6 +5,7 @@ sh = ssh(host='pwnable.kr', user='passcode',port= 2222, password='guest')
 # process
 passcode = sh.process('./passcode')
 
+print("===============================================method1================================================")
 # method1
 # overwrite fflush_got
 

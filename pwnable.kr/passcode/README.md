@@ -114,7 +114,8 @@ It can found that the variables in scanf are less **&**.
 	```c
 	int scanf(const char *format, Object *arg(s))
 	```
-When **scanf** is executed, the value of the variable will be written as address.
+When **scanf** is executed, the variable will be treated as the address to write to this location.
+That will be cause **segmentation fault**.
 
 # Analysis
 Using **gdb**

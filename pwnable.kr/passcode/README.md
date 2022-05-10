@@ -212,5 +212,5 @@ According three **notice ebp**, we can find out where the variable are, then use
 # Getting the flag
 Overwrite fflush or printf... 
 * Ovewrtie GOT
-	* fflush
-	* printf
+	* method1 : fflush
+	* method2 : printf

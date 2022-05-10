@@ -74,7 +74,7 @@ int main(){
 
 In additional to **main** , the program include other function.
 * **welcome**
-	```
+	```c
 	void welcome(){
    		char name[100];
    		printf("enter you name : ");
@@ -84,7 +84,7 @@ In additional to **main** , the program include other function.
 
 	```
 * **login**
-	```
+	```c
 	void login(){
             int passcode1;
             int passcode2;

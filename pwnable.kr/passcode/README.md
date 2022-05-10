@@ -210,6 +210,6 @@ According three **notice ebp**, we can find out where the variable are, then use
 Because all function(welcome, login) have no parameters, the ebp will be the same.
 # Getting the flag
 Overwrite fflush or printf... 
-* Overtie GOT
+* Ovewrtie GOT
 	* fflush
 	* printf

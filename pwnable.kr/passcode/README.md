@@ -73,7 +73,7 @@ int main(){
 ```
 
 In additional to **main** , the program include other function.
-* welcome
+* **welcome**
 	```
 	void welcome(){
    		char name[100];
@@ -83,7 +83,7 @@ In additional to **main** , the program include other function.
 	}
 
 	```
-* login
+* **login**
 	```
 	void login(){
             int passcode1;
@@ -119,7 +119,7 @@ When **scanf** is executed, the value of the variable will be written as address
 # Analysis
 Using **gdb**
 
-* main
+* **main**
 	```
 	passcode@pwnable:~$ gdb passcode -q
 	Reading symbols from passcode...(no debugging symbols found)...done.
@@ -140,7 +140,7 @@ Using **gdb**
    	0x08048696 <+49>:    ret    
 	End of assembler dump.
 	```
-* welcome
+* **welcome**
 	```
 	(gdb) disas welcome
 	Dump of assembler code for function welcome:
@@ -172,7 +172,7 @@ Using **gdb**
 	End of assembler dump.
 
 	```
-* login
+* **login**
 	```
 	(gdb) disas login
 	Dump of assembler code for function login:
@@ -210,3 +210,6 @@ According three **notice ebp**, we can find out where the variable are, then use
 Because all function(welcome, login) have no parameters, the ebp will be the same.
 # Getting the flag
 Overwrite fflush or printf... 
+* Overtie GOT
+	* fflush
+	* printf

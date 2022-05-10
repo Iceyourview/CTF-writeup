@@ -1,3 +1,4 @@
+# Try it
 Run it.
 ```
 $ ./flag                                                                                             
@@ -35,7 +36,7 @@ UPX 3.96        Markus Oberhumer, Laszlo Molnar & John Reiser   Jan 23rd 2020
 
 Unpacked 1 file.
 ```
-# Try to get the flag
+# Getting the flag
 Using **```gdb```** .
 ```
 gdb-peda$ info fun

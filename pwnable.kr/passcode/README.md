@@ -110,7 +110,7 @@ In additional to **main** , the program include other function.
 
 	```
 It can found that the variables in scanf are less **&**.
-* scanf(format)
+* **scanf(format)**
 	```c
 	int scanf(const char *format, Object *arg(s))
 	```

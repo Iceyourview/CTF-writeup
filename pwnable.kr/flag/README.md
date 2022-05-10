@@ -18,7 +18,7 @@ gdb-peda$ info fun
 All defined functions:
 
 ```
-No any function in the file? \
+There are no functions in the file? \
 One of the reason that the binary file has  any function could be it is packed.
 	* Upx
 # Unpack 

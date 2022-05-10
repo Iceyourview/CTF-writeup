@@ -4,12 +4,12 @@ $ ./flag
 I will malloc() and strcpy the flag there. take it.
 ```
 
-First, we look the file using ```**file**``` .
+First, we look the file using **```file```** .
 ```
 $ file flag                                                                                          
 flag: ELF 64-bit LSB executable, x86-64, version 1 (GNU/Linux), statically linked, no section header
 ```
-Then, we using ```**gdb**```...
+Then, we using **```gdb```**...
 ```
 $ gdb flag -q                                                                                        
 Reading symbols from flag...
@@ -18,7 +18,7 @@ gdb-peda$ info fun
 All defined functions:
 
 ```
-No any function.
+No any function in the file? \
 One of the reason that the binary file has  any function could be it is packed.
 	* Upx
 # Unpack 
@@ -36,7 +36,7 @@ UPX 3.96        Markus Oberhumer, Laszlo Molnar & John Reiser   Jan 23rd 2020
 Unpacked 1 file.
 ```
 # Try to get the flag
-Using ```**gdb**``` .
+Using **```gdb```** .
 ```
 gdb-peda$ info fun
 All defined functions:
@@ -53,10 +53,10 @@ Non-debugging symbols:
 0x0000000000400b69  strip
 ...
 ```
-We can see all defied functions was showed in the list.
+We can see all defined functions was shown in the list.
 1. Set main to break point.
 2. Run the program.
-3. Using ```**ni**``` to analysis.
+3. Using **```ni```** to analysis.
 
  
 We can see the flag in 0x6c2070.

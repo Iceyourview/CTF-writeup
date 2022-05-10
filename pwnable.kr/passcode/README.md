@@ -208,7 +208,7 @@ Using **gdb**
    	0x080485d7 <+115>:   movl   $0x80487a5,(%esp)
 	```
 According three **notice ebp**, we can find out where the variable are, then use the the relatively address of each variable.
-Because all function(welcome, login) have no parameters, the ebp will be the same.
+\Because all function(welcome, login) have no parameters, the ebp will be the same.
 # Getting the flag
 Overwrite fflush or printf... 
 * Ovewrtie GOT

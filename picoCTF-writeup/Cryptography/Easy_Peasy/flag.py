@@ -1,3 +1,5 @@
+#! /usr/bin/env python
+
 from pwn import *
 
 r = remote("mercury.picoctf.net", 64260)
